@@ -14,7 +14,7 @@ if file is not None and file.name.startswith("Indice Estudios Análisis de Falla
   libro_EAF=openpyxl.load_workbook(file)
 
   nom_hojas=libro_EAF.sheetnames
-  df=pd.read_excel(uploaded_file, sheet_name=nom_hojas[4])
+  df=pd.read_excel(file, sheet_name=nom_hojas[4])
   columns=df.loc[2]
   columns=columns.reset_index(drop=True)
   df=df.rename(columns=dict(zip(df.columns, columns)))
