@@ -20,7 +20,7 @@ if file is not None and file.name.startswith("Indice Estudios Análisis de Falla
     (nom_hojas[4], nom_hojas[5], nom_hojas[6]), )
 
   st.write("You selected:", option)
-  df=pd.read_excel(file, sheet_name=nom_hojas[4])
+  df=pd.read_excel(file, sheet_name=option)
   columns=df.loc[2]
   columns=columns.reset_index(drop=True)
   df=df.rename(columns=dict(zip(df.columns, columns)))
