@@ -14,6 +14,12 @@ if file is not None and file.name.startswith("Indice Estudios Análisis de Falla
   libro_EAF=openpyxl.load_workbook(file)
 
   nom_hojas=libro_EAF.sheetnames
+
+  option = st.selectbox(
+    "Selecciona el Mes",
+    (nom_hojas[4], nom_hojas[5], nom_hojas[6]), )
+
+st.write("You selected:", option)
   df=pd.read_excel(file, sheet_name=nom_hojas[4])
   columns=df.loc[2]
   columns=columns.reset_index(drop=True)
