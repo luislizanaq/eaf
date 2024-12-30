@@ -5,14 +5,15 @@ import os
 import datetime
 import pandas as pd
 import openpyxl
+import streamlit as st
 
+st.title("📄 Índice de EAF V1.0")
+uploaded_file = st.file_uploader("Sube el índice de EAF V9 (.xlsx)", type=("xlsx"))
 
-
-
-libro_EAF=openpyxl.load_workbook("C:\\Users\\luis.lizana\\OneDrive - Coordinador Eléctrico Nacional\\Archivos actualizables para automatización\\Indice Estudios Análisis de Fallas_2019-2020-2021-2022 v9.xlsx")
+libro_EAF=openpyxl.load_workbook(uploaded_file)
 
 nom_hojas=libro_EAF.sheetnames
-df=pd.read_excel("C:\\Users\\luis.lizana\\OneDrive - Coordinador Eléctrico Nacional\\Archivos actualizables para automatización\\Indice Estudios Análisis de Fallas_2019-2020-2021-2022 v9.xlsx", sheet_name=nom_hojas[4])
+df=pd.read_excel(uploaded_file, sheet_name=nom_hojas[4])
 columns=df.loc[2]
 columns=columns.reset_index(drop=True)
 df=df.rename(columns=dict(zip(df.columns, columns)))
@@ -34,6 +35,8 @@ df2["% Completado"]=0
 df2["Estado"]="No comenzada"
 df2["Categoría"]="Categoría verde"
 df2["Mensaje"]=df["EMPRESAS INVOLUC./ IF"]+"\nHora de la falla: "+df["Hora inicio"].astype(str)
-df2.to_excel("salida_indice_eaf.xlsx", index=False)
+
+st.table(df2)
+
 
 # %%
