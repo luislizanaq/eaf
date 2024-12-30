@@ -36,8 +36,6 @@ if file is not None and file.name.startswith("Indice Estudios Análisis de Falla
   df2["Estado"]="No comenzada"
   df2["Categoría"]="Categoría verde"
   df2["Mensaje"]=df["EMPRESAS INVOLUC./ IF"]+"\nHora de la falla: "+df["Hora inicio"].astype(str)
-
-
-st.dataframe(df2)
+  st.dataframe(df2)
 
 # %%
