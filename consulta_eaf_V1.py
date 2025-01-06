@@ -42,5 +42,13 @@ if file is not None and file.name.startswith("Indice Estudios Análisis de Falla
   df2["Categoría"]="Categoría verde"
   df2["Mensaje"]=df["EMPRESAS INVOLUC./ IF"]+"\nHora de la falla: "+df["Hora inicio"].astype(str)
   st.dataframe(df2)
+  df3=pd.DataFrame()
+  df3["N° EAF"]=df["EAF N°"]
+  df3["TITULO"]=df["TITULO"]
+  df3["Decha de Falla"]=df["Fecha de la Falla"]
+  df3["Plazo Artículo 6-44"]=df["Fecha Max. Art. 6-44"]
+  st.dataframe(df3)
+
+
 
 # %%
