@@ -17,7 +17,7 @@ if file is not None and file.name.startswith("Indice Estudios Análisis de Falla
 
   option = st.selectbox(
     "Selecciona el Mes",
-    (nom_hojas[4], nom_hojas[5], nom_hojas[6]), )
+    (nom_hojas[4], nom_hojas[5], nom_hojas[6],nom_hojas[7], nom_hojas[8], nom_hojas[9]), )
 
   df=pd.read_excel(file, sheet_name=option)
   columns=df.loc[2]
