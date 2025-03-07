@@ -46,6 +46,7 @@ if file is not None and file.name.startswith("Indice Estudios Análisis de Falla
   df3["N° EAF"]=df["EAF N°"]
   df3["TITULO"]=df["TITULO"]
   df3["Decha de Falla"]=df["Fecha de la Falla"]
+  df3["Hora Falla"]=df["Hora inicio"]
   df3["Plazo Artículo 6-44"]=df["Fecha Max. Art. 6-44"]
   st.dataframe(df3)
 
